@@ -13,6 +13,7 @@ buildscript {
 }
 
 val mod_version: String by project
+val mod_description: String by project
 val mod_build_number: String by project
 val forge_version: String by project
 val mappings_version: String by project
@@ -23,6 +24,7 @@ apply(plugin = "net.minecraftforge.gradle.forge")
 
 version = "$mod_version+$mod_build_number"
 group = "ru.pearx.customwhitelist"
+description = mod_description
 
 configure<BasePluginConvention> {
     archivesBaseName = "customwhitelist-$mc_version"
@@ -35,6 +37,7 @@ configure<UserBaseExtension> {
     runDir = "run"
     mappings = mappings_version
     replace("@VERSION@", mod_version)
+    replace("@DESCRIPTION@", mod_description)
     replace("@MCVERSION@", mc_version)
     replace("acceptedMinecraftVersions = \"\"", "acceptedMinecraftVersions = \"$accepted_mc_versions\"")
     replaceIn("CustomWhitelist.java")
